@@ -1,0 +1,7 @@
+# LSP config with local paths
+.luarc.json
+
+# Not a nvim config file
+capslock2esc_win.reg
+
+nvim-pack-lock.json

@@ -1,0 +1,1 @@
+require("plugins.scheme.tokyonight")

@@ -1,0 +1,12 @@
+# Secrets
+*.secret
+.env
+.env.*
+
+# Local machine-specific files
+*.local
+
+# Editor junk
+*.swp
+*.swo
+*~
