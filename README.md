@@ -42,7 +42,7 @@
 sudo apt update
 sudo apt install -y git stow
 
-git clone git@github.com:<login>/dotfiles.git ~/dotfiles
+git clone git@github.com:xxxyyy-97/dotfiles.git ~/dotfiles
 cd ~/dotfiles
 
 stow nvim
