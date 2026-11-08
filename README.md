@@ -67,3 +67,30 @@ touch tmux/.tmux.conf
 
 stow tmux
 ```
+## Локальные override-файлы
+Некоторые вещи не должны попадать в Git: токены, пути, machine-specific настройки.
+- ~/.zshrc.local — подключается в конце ~/.zshrc, не в Git.
+- ~/.config/nvim/local.lua — если используешь, добавлен в .gitignore.
+Пример: отключить авто-установку pyright на машине без npm:
+```bash
+echo 'export NVIM_DISABLE_PYRIGHT=1' >> ~/.zshrc.local
+source ~/.zshrc
+```
+## Ветки
+- main — базовый конфиг для большинства машин.
+- pihole — правки под сервер с AdGuard Home (в частности, отключён pyright,
+т.к. там нет npm и Python-LSP не нужен). Не мёржится в main, живёт отдельно.
+На других машинах работай в main.
+
+## Чего не коммитить
+- приватные SSH-ключи (~/.ssh/id_*);
+- токены, пароли, .env;
+- ~/.aws, ~/.azure, ~/.password-store и подобные;
+- любые секреты.
+
+## Полезные команды stow
+```bash
+stow <pkg>        # создать симлинки
+stow -D <pkg>     # удалить симлинки (файлы в репо остаются)
+stow -R <pkg>     # пересоздать (удалить + создать)
+```
