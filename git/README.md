@@ -116,8 +116,9 @@ GITHUB_USER="ivan"
 EOF
 
 # 3. применяем git-настройки
-cd ~/dotfiles
-./git/gitconfig.sh
+cd ~/dotfiles/git
+chmod +x gitconfig.sh
+./gitconfig.sh
 ```
 
 ## Безопасность
