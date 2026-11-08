@@ -26,3 +26,44 @@
 - nodejs + npm — если нужен pyright через Mason
 
 ## Установка на новой машине
+```bash
+sudo apt update
+sudo apt install -y git stow
+
+git clone git@github.com:<login>/dotfiles.git ~/dotfiles
+cd ~/dotfiles
+
+stow nvim
+stow zsh
+```
+Проверка:
+```bash
+ls -la ~/.config/nvim
+ls -la ~/.zshrc
+```
+Должны быть симлинки в ~/dotfiles.
+
+## Как редактировать
+Редактируй файлы как обычно — через ~/.config/nvim/... или ~/.zshrc.
+Из-за симлинка изменения физически попадают в репозиторий.
+Потом:
+```bash
+cd ~/dotfiles
+git status
+git add .
+git commit -m "..."
+git push
+```
+## Как добавить новый конфиг
+Например, tmux:
+```bash
+cd ~/dotfiles
+mkdir tmux
+# кладём конфиг так, как он лежит относительно $HOME
+# для ~/.tmux.conf:
+touch tmux/.tmux.conf
+# для ~/.config/tmux/tmux.conf:
+# mkdir -p tmux/.config/tmux && touch tmux/.config/tmux/tmux.conf
+
+stow tmux
+```
