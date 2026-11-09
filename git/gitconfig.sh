@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# need: chmod +x gitconfig.sh 
+# need: chmod +x gitconfig.sh
 
 set -euo pipefail
 
