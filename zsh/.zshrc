@@ -106,44 +106,6 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-# alias vm="NVIM_APPNAME=lol ~/neovim/bin/nvim"
 
-
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
-# export NVIM_APPNAME=lol
-# export EDITOR="$DHD/neovim/bin/nvim"
-export EDITOR="nvim"
-
-# Pi
-export PATH="/home/docker/.pi/agent/bin:$PATH"
-
-. "$HOME/.local/bin/env"
-
-# uv
-alias dbt='uv run dbt'
-
-alias rp='uv run python'
-
-export DBT_PROFILES_DIR="$HOME/.dbt"
-alias mf='uv run mf'
-
-# nvim
-# DHD="/home/docker"
-alias vv="NVIM_APPNAME=kek nvim"
-# alias vl="$DHD/neovim/bin/nvim"
-
-alias v="nvim"
-alias sv="sudo nvim"
-alias lg="lazygit"
-#vf() {
-##  NVIM_APPNAME=lol $DHD/neovim/bin/nvim # "$@"
-#  set -a
-#  [ -f $DHD/.nvim-proxy.env ] && source $DHD/.nvim-proxy.env
-#  NVIM_APPNAME=lol
-#  set +a
-#  $DHD/neovim/bin/nvim $@
-#}
-
+#  свой конфиг из https://github.com/xxxyyy-97/dotfiles
+[ -f "$HOME/.config/shell-init.sh" ] && source "$HOME/.config/shell-init.sh"
