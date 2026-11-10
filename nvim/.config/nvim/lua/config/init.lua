@@ -2,12 +2,14 @@
 
 --vim.opts
 vim.g.mapleader = " "
+-- vim.g.loaded_netrw = 1
+-- vim.g.loaded_netrwPlugin = 1
 
 local o = vim.opt
 o.showmode = false
 
 -- o.chdir = false
-o.autochdir = true
+-- o.autochdir = false
 
 --все горизонтальные сплиты — внизу
 o.splitbelow = true

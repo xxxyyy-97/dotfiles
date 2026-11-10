@@ -5,3 +5,4 @@ require("autocmd.lsp_attach")
 
 require("autocmd.ts_filetype")
 require("autocmd.term_open_insert_mode")
+-- require("autocmd.win_separator")
