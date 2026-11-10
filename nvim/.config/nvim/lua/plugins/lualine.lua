@@ -49,5 +49,5 @@ require("lualine").setup({
   },
 
   -- корректный статуслайн в окнах плагинов, которые у тебя стоят
-  extensions = { "neo-tree", "lazygit", "fzf", "mason", "quickfix" },
+  extensions = { "neo-tree", "fzf", "mason", "quickfix" },
 })

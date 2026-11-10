@@ -6,6 +6,9 @@ vim.g.mapleader = " "
 local o = vim.opt
 o.showmode = false
 
+-- o.chdir = false
+o.autochdir = true
+
 --все горизонтальные сплиты — внизу
 o.splitbelow = true
 --все вертикальные сплиты — справа
