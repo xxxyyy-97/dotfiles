@@ -68,7 +68,7 @@ require("lualine").setup({
     icons_enabled = true,   -- нужен Nerd Font
     component_separators = { left = "", right = "" },
     section_separators = { left = "", right = "" },
-    always_divide_middle = false,  -- ← выключает растяжение левых секций
+    -- always_divide_middle = false,  -- ← выключает растяжение левых секций
   },
 
   sections = {
