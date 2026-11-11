@@ -7,7 +7,7 @@ vim.g.mapleader = " "
 
 local o = vim.opt
 o.showmode = false
-o.timeoutlen = 170
+-- o.timeoutlen = 170
 
 -- Completion (используется встроенным vim.lsp.completion)
 o.completeopt = { "menu", "menuone", "noinsert", "fuzzy", "popup" }

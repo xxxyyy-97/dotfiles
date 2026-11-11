@@ -37,7 +37,7 @@ function M.attach(bufnr, client)
   cap_map("textDocument/codeAction", { "n", "v" }, "<leader>ga", vim.lsp.buf.code_action, "code action")
 
   if client:supports_method("textDocument/formatting")
-    or client:supports_method("textDocument/rangeFormatting") then
+      or client:supports_method("textDocument/rangeFormatting") then
     map({ "n", "v" }, "<leader>gf", function()
       vim.lsp.buf.format({ async = true, bufnr = bufnr })
     end, "format")

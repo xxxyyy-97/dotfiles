@@ -3,7 +3,7 @@ vim.keymap.set("n", "<leader>r", "<Cmd>checktime<CR>")                          
 vim.keymap.set("n", "<esc>", "<Cmd>nohlsearch<CR>", { noremap = true, silent = true }) --убрать выделение
 vim.keymap.set("n", "<C-q>", "<C-v>", { noremap = true, silent = true })             --переопределения для вхлда в режим v-block
 
-vim.keymap.set({'n','i','v'}, '<Leader>c', function()
+vim.keymap.set({'n','v'}, '<Leader>c', function()
   vim.opt.list = not vim.o.list
   -- vim.opt.list = not vim.opt.list:get()
 end, { desc = 'Toggle listchars' })
