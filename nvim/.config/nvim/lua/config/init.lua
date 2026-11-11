@@ -2,6 +2,7 @@
 
 --vim.opts
 vim.g.mapleader = " "
+vim.g.have_nerd_font = true
 -- vim.g.loaded_netrw = 1
 -- vim.g.loaded_netrwPlugin = 1
 
@@ -38,6 +39,7 @@ o.softtabstop = 2
 o.shiftwidth = 2
 o.expandtab = true
 o.smartindent = true
+o.scrolloff = 10
 
 o.encoding = "utf-8"
 o.fileencoding = "utf-8"
