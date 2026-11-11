@@ -42,23 +42,9 @@ o.smartindent = true
 o.encoding = "utf-8"
 o.fileencoding = "utf-8"
 
-if vim.fn.has("wsl") == 1 then
-  vim.g.clipboard = {
-    name = 'win32yank',
-    copy = {
-      ['+'] = 'win32yank.exe -i --crlf',
-      ['*'] = 'win32yank.exe -i --crlf --selection=mouse',
-    },
-    paste = {
-      ['+'] = 'win32yank.exe -o --lf',
-      ['*'] = 'win32yank.exe -o --lf --selection=mouse',
-    },
-    cache_enabled = 0,
-  }
-end
+require("config.clipboard")
 
 o.winborder = "rounded"
-o.clipboard = "unnamedplus"
 o.list = false
 o.listchars = 'tab:→ ,space:·,nbsp:☠,trail:•,eol:¶,precedes:«,extends:»'
 
