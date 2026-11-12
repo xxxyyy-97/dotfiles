@@ -1,8 +1,12 @@
 local prefix = "<leader>l"
 
+local function map(mode, lhs, rhs, desc)
+    vim.keymap.set(mode, lhs, rhs, { noremap = true, silent = true, desc =  desc })
+end
+
 local LAZYGIT_ACTIONS = {
-  { key = "G", fn = "LazyGit", desc = "LazyGit: запуск LazyGit"},
-  { key = "g", fn = "tabnew | term lazygit", desc = "LazyGit в новом табе" },
+  { key = "g", fn = "LazyGit", desc = "LazyGit: запуск LazyGit"},
+  { key = "G", fn = "tabnew | term lazygit", desc = "LazyGit в новом табе" },
   { key = "s", fn = "ls", desc = "список буферов"},
   { key = "w", fn = "wqa", desc = "сохранить все и выйти"},
   { key = "c", fn = "cq", desc = "отменить все и выйти"},
@@ -28,16 +32,5 @@ for _, action in ipairs(LAZYGIT_ACTIONS) do
   local mode = action.mode or "n"
   local cmd = ":"
   local keys = prefix .. action.key
-  vim.keymap.set(mode, keys, cmd .. action.fn .. "<CR>", {
-    desc = action.desc,
-    noremap = true,
-    silent = true
-  })
+  map(mode, keys, cmd .. action.fn .. "<CR>", action.desc )
 end
-
-
--- vim.keymap.set("n", "<leader>lg", function()
---  vim.cmd("tabnew ")
---  vim.cmd("term lazygit")
---  vim.cmd("startinsert")
--- end, { desc = "Открыть терминал в новой вкладке" })
