@@ -1,14 +1,4 @@
-local function map(mode, lhs, rhs, desc)
-  vim.keymap.set(mode, lhs, rhs, { noremap = true, silent = true, desc =  desc })
-end
-
-local function map_array(array)
-  for _, action in ipairs(array) do
-    local mode = action.mode or "n"
-    local keys = action.key
-    map(mode, keys,  action.fn, action.desc )
-  end
-end
+local map_array = require("utils.keymap").map_array
 
 local BASE_ACTIONS = {
   { key = '<Leader>e',  fn ='<Cmd>Explore<CR>',     desc = 'менеджер netrw'},
@@ -42,7 +32,7 @@ local BASE_ACTIONS = {
 
   -- разделение окна
   { key = '<leader>sT', fn ='<Cmd>split | terminal<CR>',    desc = 'Открыть терминал в нижнем сплит-окне' },
-  { key = '<leader>st', fn ='<Cmd>vsplit | terminal<CR>',   desc = 'Открыть терминал в нижнем сплит-окне' },
+  { key = '<leader>st', fn ='<Cmd>vsplit | terminal<CR>',   desc = 'Открыть терминал в правом сплит-окне' },
   { key = '<leader>sv', fn ='<Cmd>vsplit<CR>',              desc = 'Вертикальное разделение' },
   { key = '<leader>sg', fn ='<Cmd>split<CR>',               desc = 'Горизонтальное разделение' },
   { key = '<leader>sx', fn ='<Cmd>close!<CR>',              desc = 'Закрыть текущее окно' },
@@ -71,7 +61,7 @@ local BASE_ACTIONS = {
   { key = '>',          fn = '>gv',                         desc = 'Увеличить отступ',                    mode ='v' },
   { key = 'jj',         fn = '<Esc>',                       desc = 'быстрый выход из режима вставки',     mode ='i'},
 
-  { key = '<Leader>c', fn = 'function() vim.opt.list = not vim.o.list end',   desc = 'Toggle listchars',  mode = {'n','v'}},
+  { key = '<Leader>c', fn = function() vim.opt.list = not vim.o.list end,   desc = 'Toggle listchars',  mode = {'n','v'}},
 }
 
 map_array(BASE_ACTIONS)

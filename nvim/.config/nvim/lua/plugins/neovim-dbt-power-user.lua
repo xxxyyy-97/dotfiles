@@ -16,4 +16,4 @@ require("dbt-power-user").setup({
 --  dbt_cmd = "/home/docker/bin/dbt",
 })
 
-require("keymap.neovim-dbt-power-user")
+require("keymap.neovim-dbt-power-user-keymap")

@@ -6,4 +6,4 @@ vim.pack.add({
   },
 })
 
-require("keymap.lazygit")
+require("keymap.lazygit-keymap")

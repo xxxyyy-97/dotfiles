@@ -1,4 +1,4 @@
 vim.pack.add({
 	{src = "https://github.com/github/copilot.vim"},
 })
-require("keymap.copilot")
+require("keymap.copilot-keymap")
