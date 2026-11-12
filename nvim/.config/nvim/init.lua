@@ -1,4 +1,3 @@
-require("keymap.disable-arrows")
 require("config")
 require("plugins")
 require("lsp")
