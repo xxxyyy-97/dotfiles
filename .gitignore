@@ -10,3 +10,23 @@
 *.swp
 *.swo
 *~
+
+# --- Vim: машинно-локальное состояние ---
+.netrwhist
+.netrwbook
+undo/
+*.un~
+.viminfo
+
+# --- Vim: swap / backup / сессии ---
+*.sw[a-p]
+*.bak
+*.backup
+*.orig
+Session.vim
+Sessionx.vim
+
+# --- ctags ---
+tags
+tags.lock
+tags.temp
