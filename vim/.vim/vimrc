@@ -10,15 +10,56 @@ set expandtab
 set sw=2
 set sts=2
 set encoding=utf-8    " без него nr2char(0xE0B0) выдаст мусор
-set noshowmode        " режим уже в статуслайне, -- INSERT -- снизу не нужен
+
+set hidden          " переключение буферов без принудительного сохранения
+set noswapfile      " никакого .swp-мусора рядом с файлами (цена: нет crash-recovery)
+set nobackup
+set nowritebackup
+set hlsearch
+set incsearch
+set ignorecase
+set smartcase
+
+" ---------- Непечатаемые ----------
+set nolist                      " выключено по умолчанию; <leader>l — показать
+set listchars=tab:→\ ,nbsp:☠,trail:•,eol:¶,precedes:«,extends:»
+silent! set listchars+=space:·
+
+" ---------- Серверная гигиена ----------
+set lazyredraw                  " меньше перерисовок на медленном канале
+set timeoutlen=500
+set ttimeoutlen=10              " Esc не залипает по ssh
+set synmaxcol=200               " не подсвечивать километровые строки
+set complete-=i                 " автодополнение не сканирует include-файлы
+
+" ---------- Состояние вне репозитория ----------
+let s:cache = expand('~/.cache/vim')
+if has('persistent_undo')
+  if !isdirectory(s:cache . '/undo')
+    call mkdir(s:cache . '/undo', 'p', 0700)
+  endif
+  let &undodir = s:cache . '/undo'
+  set undofile
+endif
+let g:netrw_home = s:cache      " .netrwhist и закладки netrw — сюда, не в репо
+
+" ---------- Большие файлы ----------
+augroup vim_bigfile
+  autocmd!
+  autocmd BufReadPre *
+        \ if getfsize(expand('<afile>')) > 2*1024*1024
+        \ | setlocal undolevels=-1 synmaxcol=100
+        \ | endif
+augroup END
 
 if has('syntax')
   syntax on
 endif
 filetype plugin indent on
 
-" let g:netrw_banner = 0
-" let g:netrw_liststyle = 1
+let g:netrw_keepdir = 0   " cwd следует за листингом → относительные цели stow-симлинков резолвятся
+let g:netrw_banner = 0    " меньше служебного шума
+let g:netrw_liststyle = 0 " long: симлинк виден как name -> target; tree оставим на случай
 let g:netrw_alto = 1      " o — снизу (0 = сверху)
 let g:netrw_altv = 1      " v — справа (0 = слева)
 let g:netrw_winsize = 75  " размер сплита от o/v, в процентах
