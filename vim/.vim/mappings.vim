@@ -64,20 +64,39 @@ endif
 " ---------- Прочее (из .vimrc) ----------
 " w — записать; q — выйти; h — сбросить подсветку поиска;
 " l — невидимки; n — relativenumber; F2 — paste; f — :find; e — netrw
+
 nnoremap <silent> <leader>w :<C-u>write<CR>
 nnoremap <silent> <leader>q :<C-u>quit<CR>
 nnoremap <silent> <leader>h :<C-u>nohlsearch<CR>
-nnoremap <silent> <leader>l :<C-u>set list!<CR>
+nnoremap <silent> <leader>c :<C-u>set list!<CR>
 nnoremap <silent> <leader>n :<C-u>set relativenumber!<CR>
 nnoremap <silent> <F2>      :<C-u>set paste!<CR>
 nnoremap <leader>f :find <Space>
 nnoremap <silent> <leader>e :<C-u>Lexplore 30<CR>
-
 nnoremap <expr> j v:count ? 'j' : 'gj'
 nnoremap <expr> k v:count ? 'k' : 'gk'
+
+" ---------- Размер окон ----------
+" <C-w>+/- — высота, <C-w></> — ширина (< уже, > шире)
+nnoremap <silent> <C-Up>    <C-w>+
+nnoremap <silent> <C-Down>  <C-w>-
+nnoremap <silent> <C-Left>  <C-w><
+nnoremap <silent> <C-Right> <C-w>>
+
+" ---------- Перемещение строк ----------
+nnoremap <silent> <A-j> :<C-u>m.+1<CR>==
+nnoremap <silent> <A-k> :<C-u>m.-2<CR>==
+xnoremap <A-j> :m '>+1<CR>gv=gv
+xnoremap <A-k> :m '<-2<CR>gv=gv
+
+" ---------- Быстрый выход из insert ----------
+inoremap jj <Esc>
+
 nnoremap Y y$
 vnoremap < <gv
 vnoremap > >gv
 
 " забыл sudo vim — сохраняем через sudo tee
 cnoremap w!! w !sudo tee > /dev/null %
+
+autocmd FileType netrw nmap <buffer> u <CR>
